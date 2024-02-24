@@ -1,0 +1,52 @@
+<!-- Rogelio Orozco : Assignment 10.3 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>“CSD 340 Web Development with HTML and CSS"</title>
+    <link href="" type="text/css" rel="stylesheet" /> 
+    <meta name="description" content="Learning CSS" />
+    <meta name="keywords" content="CSS, introduction, basics" />
+    <meta name="robots"
+    content="nofollow" />
+    <meta http-equiv="author"
+    content="Rogelio Orozco" />
+    <script>
+        function changeTime(img) {
+            // Get the image source
+            var src = img.getAttribute('src');
+            
+            // Check if the image is set to night
+            if (src.endsWith('night.jpg')) {
+                // Change the image source to day
+                img.src = 'day.jpg';
+                return;
+            } 
+
+            // Check if the image is set to day
+            if (src.endsWith('day.jpg')) {
+                // Change the image source to night
+                img.src = 'night.jpg';
+            }
+        }
+        </script>
+</head>
+
+<body>
+    <div id=”container”>
+        <h1>Assignment 10.3: JavaScript - Part 2</h1>
+        
+        <h2>Using onClick mouse event to change image</h2>
+        <div>
+            <p>Click on the image to change.</p>
+            <a>
+              <img border = 0 name = "myImage" src = "night.jpg" onclick="changeTime(myImage)">
+            </a>
+          </div>
+
+
+        <hr />
+    </div>
+
+    
+</body>
+</html>
