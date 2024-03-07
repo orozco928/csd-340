@@ -1,0 +1,100 @@
+<!-- Rogelio Orozco : Assignment 3.3 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>“CSD 340 Web Development with HTML and CSS"</title>
+    <link href="orozco-module12-2.css" type="text/css" rel="stylesheet" /> 
+    <meta name="description" content="Learning CSS" />
+    <meta name="keywords" content="ordered, unordered lists, CSS, introduction, basics" />
+    <meta name="robots"
+    content="nofollow" />
+    <meta http-equiv="author"
+    content="Rogelio Orozco" />
+</head>
+
+<body>  
+    <div id=”container”>
+
+        <h1>Assignment 12.2: JavaScript - Part 4</h1>
+
+        <div id="left-div">
+            <h3>Top 10 Favorite Books</h3>
+            <button onclick="sortBooks('asc')">Top to Bottom</button>
+            <button onclick="sortBooks('desc')">Bottom to Top</button>
+            <hr>
+            <ol id="bookList">
+                <!-- This is where the book titles will be inserted -->
+            </ol>
+
+            <script>
+                // Array of book titles
+                var books = [
+                  "1984",
+                  "Altered Carbon",
+                  "Amatka",
+                  "The Best of All Possible Worlds",
+                  "The Big Book of Science Fiction",
+                  "The Blazing World and Other Writings",
+                  "A Canticle for Leibowitz",
+                  "The Children of Men",
+                  "The Hobbit",
+                  "The City and the City"
+                ];
+                
+                // Function to display book titles in the specified order
+                function displayBooks(order) {
+                  var bookList = document.getElementById("bookList");
+                  bookList.innerHTML = ""; // Clear previous list
+                  
+                  // Display books in specified order
+                  if (order === 'asc') {
+                    for (var i = 0; i < books.length; i++) {
+                      var listItem = document.createElement("li");
+                      listItem.textContent = books[i];
+                      bookList.appendChild(listItem);
+                    }
+                    bookList.removeAttribute("reversed");
+                  } else if (order === 'desc') {
+                    for (var i = books.length - 1; i >= 0; i--) {
+                      var listItem = document.createElement("li");
+                      listItem.textContent = books[i];
+                      bookList.appendChild(listItem);
+                    }
+                    bookList.setAttribute("reversed", "true");
+                  }
+                }
+                
+                // Function to sort books and display them accordingly
+                function sortBooks(order) {
+                  if (order === 'asc') {
+                    displayBooks('asc');
+                  } else if (order === 'desc') {
+                    displayBooks('desc');
+                  }
+                }
+                
+                // Display book titles initially in ascending order
+                displayBooks('asc');
+                </script>
+
+        </div>
+        <div id="right-div">
+            <h3>5 Things I’ve Learned Since the Course Started</h3>
+            <ul>
+                <li>HTML is the language that describes the structure of a webpage</li>
+                <li>A webpage will be made up of elements, which are enclosed using tags. ex &lt;body&gt;</li>
+                <li>CSS is the language that describes the way the content is shown</li>
+                <li>CSS 'rules' are made up of a selector(elements to be styled) and declaration (the particular stylings).</li>
+                <li>CSS declarations are made up of a property (which aspect of the element ex. color, font, border) and value(style setting (green, Arial, 10px).</li>
+            </ul>
+        </div>
+
+        <div id="last-div">
+            <a href="../index.html">Back to Landing Page</a>
+        </div>
+
+    </div>
+
+    
+</body>
+</html>
